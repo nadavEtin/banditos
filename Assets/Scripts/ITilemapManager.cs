@@ -2,6 +2,6 @@
 {
     public interface ITilemapManager
     {
-        void Init(TileRefrences tileRefs);
+        void Init(TileRefrences tileRefs, GameParams gameParams);
     }
 }

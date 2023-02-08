@@ -1,8 +1,27 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[CreateAssetMenu(fileName = "TileRefrences", menuName = "ScriptableObjects/Tile refrences")]
+public enum TileType
+{
+    Base,
+    Wall,
+    Exit,
+    Player
+}
+
+[CreateAssetMenu(fileName = "TileReferences", menuName = "ScriptableObjects/Tile references")]
 public class TileRefrences : ScriptableObject
 {
-    public Tile _emptyTile;
+    public Dictionary<TileType, Tile> TileObjectDictionary;
+    [SerializeField] private Tile BaseTile, WallTile, ExitTile, Player;
+
+    public void Init()
+    {
+        TileObjectDictionary = new Dictionary<TileType, Tile>
+        {
+            { TileType.Base, BaseTile }, { TileType.Wall, WallTile },
+            { TileType.Player, Player }, { TileType.Exit, ExitTile }
+        };
+    }
 }

@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7475b240b263e499af306b75e962a3, type: 3}
   m_Name: GameParams
   m_EditorClassIdentifier: 
+  RowAmnt: 10
+  ColumnAmnt: 10
   LevelMinXVal: -5
   LevelMinYVal: -5
   LevelMaxXVal: 4
   LevelMaxYVal: 4
+  PlayerStartPos: {x: -4, y: -4, z: 0}
+  ExitPos: {x: 3, y: 3, z: 0}
