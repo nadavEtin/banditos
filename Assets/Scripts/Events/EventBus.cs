@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Events
+namespace Assets.Scripts.Events
 {
     public enum GameplayEvent
     {
-        GameStart, GameEnd
+        MovementInput, GameOver
     }
 
     public static class EventBus

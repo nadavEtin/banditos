@@ -4,10 +4,13 @@ using UnityEngine.Tilemaps;
 
 public enum TileType
 {
+    None,
     Base,
     Wall,
     Exit,
-    Player
+    Lava,
+    Player,
+    Star
 }
 
 [CreateAssetMenu(fileName = "TileReferences", menuName = "ScriptableObjects/Tile references")]
