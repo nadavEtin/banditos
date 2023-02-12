@@ -1,4 +1,6 @@
-﻿namespace Assets.Scripts.Events
+﻿using Assets.Scripts.Gameplay;
+
+namespace Assets.Scripts.Events
 {
     public class MovementInputParams : BaseEventParams
     {
