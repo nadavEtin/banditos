@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RowAmnt: 10
   ColumnAmnt: 10
-  LevelMinXVal: 0
-  LevelMinYVal: 0
-  LevelMaxXVal: 9
-  LevelMaxYVal: 9
   PlayerStartPos: {x: 1, y: 1, z: 0}
   ExitPos: {x: 8, y: 8, z: 0}
+  StarTiles: 3
+  LavaTiles: 5
+  WallTiles: 4

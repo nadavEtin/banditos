@@ -17,14 +17,15 @@ public enum TileType
 public class TileRefrences : ScriptableObject
 {
     public Dictionary<TileType, Tile> TileObjectDictionary;
-    [SerializeField] private Tile BaseTile, WallTile, ExitTile, Player;
+    [SerializeField] private Tile BaseTile, WallTile, ExitTile, PlayerTile, LavalTile, StarTile;
 
     public void Init()
     {
         TileObjectDictionary = new Dictionary<TileType, Tile>
         {
             { TileType.Base, BaseTile }, { TileType.Wall, WallTile },
-            { TileType.Player, Player }, { TileType.Exit, ExitTile }
+            { TileType.Player, PlayerTile }, { TileType.Exit, ExitTile },
+            { TileType.Lava, LavalTile }, { TileType.Star, StarTile }
         };
     }
 }

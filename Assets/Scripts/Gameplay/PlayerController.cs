@@ -1,19 +1,23 @@
 ﻿using Assets.Scripts.Events;
+using Assets.Scripts.UI;
 using UnityEngine;
 
 namespace Assets.Scripts.Gameplay
 {
-    public class PlayerController : IPlayerController
+    public class PlayerController
     {
         private Vector3Int _curPos;
         private ITilemapManager _tileManager;
+        private IUIManager _uiManager;
+        private int _stepsCounter;
 
-        public PlayerController(ITilemapManager tileManager, Vector3Int startingPos)
+        public PlayerController(ITilemapManager tileManager, IUIManager uiManager, Vector3Int startingPos)
         {
             EventBus.Subscribe(GameplayEvent.GameOver, GameOver);
             EventBus.Subscribe(GameplayEvent.MovementInput, MovementInput);
             _tileManager = tileManager;
             _curPos = startingPos;
+            _uiManager = uiManager;
         }
 
         private void MovementInput(BaseEventParams eventParams)
@@ -46,6 +50,7 @@ namespace Assets.Scripts.Gameplay
             {
                 _curPos = destinationTile.pos;
                 _tileManager.SetPlayerPos(_curPos);
+                _uiManager.UpdateStepsCount(++_stepsCounter);
             }
         }
 
@@ -71,7 +76,7 @@ namespace Assets.Scripts.Gameplay
 
         private void ExitReached()
         {
-            EventBus.Publish(GameplayEvent.GameOver, new GameOverParams(false));
+            EventBus.Publish(GameplayEvent.GameOver, new GameOverParams(true));
         }
 
         private void LavaTile()
@@ -81,8 +86,8 @@ namespace Assets.Scripts.Gameplay
 
         private void GameOver(BaseEventParams eventParams)
         {
-            EventBus.Unsubscribe(GameplayEvent.MovementInput, MovementInput);
-            EventBus.Unsubscribe(GameplayEvent.GameOver, GameOver);
+            //EventBus.Unsubscribe(GameplayEvent.MovementInput, MovementInput);
+            //EventBus.Unsubscribe(GameplayEvent.GameOver, GameOver);
         }
     }
 }

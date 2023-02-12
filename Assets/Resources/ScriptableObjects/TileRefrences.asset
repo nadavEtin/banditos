@@ -15,4 +15,6 @@ MonoBehaviour:
   BaseTile: {fileID: 11400000, guid: 6d0d440b66502ef479abc0e91ad02087, type: 2}
   WallTile: {fileID: 11400000, guid: 77404b96e73df49448e1e8c8b7a9bca7, type: 2}
   ExitTile: {fileID: 11400000, guid: 1fc5b2aa81e94e14eb73c34dceb1c5ab, type: 2}
-  Player: {fileID: 11400000, guid: 3b4eaf257670f4d478b7cc6ac67f562d, type: 2}
+  PlayerTile: {fileID: 11400000, guid: 3b4eaf257670f4d478b7cc6ac67f562d, type: 2}
+  LavalTile: {fileID: 11400000, guid: c669954006297174b9f2aa35182ceddc, type: 2}
+  StarTile: {fileID: 11400000, guid: fa6ca50331b3dc44c8d2ec879efdce44, type: 2}

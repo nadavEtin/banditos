@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Events;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -7,7 +6,7 @@ namespace Assets.Scripts
     public enum Direction
     {
         Up,
-        Left, 
+        Left,
         Down,
         Right
     }
@@ -16,7 +15,7 @@ namespace Assets.Scripts
     {
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) 
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
                 EventBus.Publish(GameplayEvent.MovementInput, new MovementInputParams(Direction.Up));
             else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
                 EventBus.Publish(GameplayEvent.MovementInput, new MovementInputParams(Direction.Left));
