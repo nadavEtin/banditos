@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Events;
+using Assets.Scripts.GameLevel;
 using Assets.Scripts.UI;
 using UnityEngine;
 
@@ -13,7 +14,6 @@ namespace Assets.Scripts.Gameplay
 
         public PlayerController(ITilemapManager tileManager, IUIManager uiManager, Vector3Int startingPos)
         {
-            EventBus.Subscribe(GameplayEvent.GameOver, GameOver);
             EventBus.Subscribe(GameplayEvent.MovementInput, MovementInput);
             _tileManager = tileManager;
             _curPos = startingPos;
@@ -54,6 +54,7 @@ namespace Assets.Scripts.Gameplay
             }
         }
 
+        //determines if movement is allowed to the destination tile
         private bool AllowMovement(LevelTile tile)
         {
             switch (tile.type)
@@ -66,7 +67,7 @@ namespace Assets.Scripts.Gameplay
                     ExitReached();
                     return true;
                 case TileType.Lava:
-                    LavaTile();
+                    MovedToLavaTile();
                     return false;
                 default:
                     Debug.Log("unrecognized tile type");
@@ -79,15 +80,9 @@ namespace Assets.Scripts.Gameplay
             EventBus.Publish(GameplayEvent.GameOver, new GameOverParams(true));
         }
 
-        private void LavaTile()
+        private void MovedToLavaTile()
         {
             EventBus.Publish(GameplayEvent.GameOver, new GameOverParams(false));
-        }
-
-        private void GameOver(BaseEventParams eventParams)
-        {
-            //EventBus.Unsubscribe(GameplayEvent.MovementInput, MovementInput);
-            //EventBus.Unsubscribe(GameplayEvent.GameOver, GameOver);
         }
     }
 }
